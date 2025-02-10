@@ -150,9 +150,7 @@ async def create_table_for_listener_tests(
 ) -> AsyncGenerator[None, None]:
     connection = await psql_pool.connection()
     await connection.execute(
-        f"CREATE TABLE {listener_table_name}"
-        f"(id SERIAL, payload VARCHAR(255),"
-        f"channel VARCHAR(255), process_id INT)",
+        f"CREATE TABLE {listener_table_name}(id SERIAL, payload VARCHAR(255),channel VARCHAR(255), process_id INT)",
     )
 
     yield
